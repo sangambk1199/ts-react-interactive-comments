@@ -25,7 +25,11 @@ export const CommentThread = ({ comment }: CommentThreadProps) => {
       />
 
       <div className='ms-12 ps-12 border-s border-solid border-light-grayish-blue'>
-        {/* <CommentCard /> */}
+        { 
+          comment.replies &&
+          comment.replies.map(reply => <CommentThread key={reply.id} comment={reply} />)
+        }
+
         {
             showReplyForm &&
             <AddCommentForm />
