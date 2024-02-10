@@ -31,8 +31,7 @@ export const CommentThread = ({ comment }: CommentThreadProps) => {
         }
 
         {
-            showReplyForm &&
-            <AddCommentForm />
+          showReplyForm && <AddCommentForm />
         }
       </div>
     </>
