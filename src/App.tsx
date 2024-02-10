@@ -1,14 +1,19 @@
 import { CommentSection } from "./components/comments/CommentSection"
 import { AddComment } from "./components/comments/AddComment"
-import commentData from './utils/data.json';
+import { UserDataProvider } from "./contexts/UserContext/UserProvider";
+import { CommentsDataProvider } from "./contexts/CommentsContext/CommentsProvider";
 
 function App() {
 
   return (
-    <div className="container max-w-screen-md mx-auto px-4 my-24">
-      <CommentSection currentUser={commentData.currentUser} comments={commentData.comments} />
-      <AddComment />
-    </div>
+    <UserDataProvider>
+      <CommentsDataProvider>
+        <div className="container max-w-screen-md mx-auto px-4 my-24">
+          <CommentSection />
+          <AddComment />
+        </div>
+      </CommentsDataProvider>
+    </UserDataProvider>
   )
 }
 

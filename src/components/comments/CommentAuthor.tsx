@@ -1,11 +1,17 @@
 import avatar from '../../assets/avatars/image-amyrobson.png'
+import { User } from '../../types/user.types';
 
-export const CommentAuthor = () => {
+type CommentAuthorProps = {
+    user: User;
+    createdAt: string;
+}
+
+export const CommentAuthor = ({ user, createdAt }: CommentAuthorProps) => {
     return (
         <div className="flex items-center gap-2">
             <img src={avatar} className='w-8' />
-            <strong>sangambk1199</strong>
-            <span className='text-gray-400 text-sm'>11 months ago</span>
+            <strong>{user.username}</strong>
+            <span className='text-gray-400 text-sm'>{createdAt}</span>
         </div>
     )
 }

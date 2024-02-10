@@ -1,7 +1,11 @@
 import { useState } from 'react'
 
-export const CommentVote = () => {
-    const [voteCount, setVoteCount] = useState(12);
+type CommentVoteProps = {
+    score: number;
+}
+
+export const CommentVote = ({ score }: CommentVoteProps) => {
+    const [voteCount, setVoteCount] = useState(score);
 
     const increaseVoteCount = () => {
         setVoteCount( prev => prev + 1 );

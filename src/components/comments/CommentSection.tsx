@@ -1,40 +1,18 @@
+import { useCommentsData } from "../../contexts";
 import { CommentThread } from "./CommentThread"
 
-type Comment = {
-    id: number;
-    content: string;
-    createdAt: string;
-    score: number;
-    user: {
-        image: {
-            png: string;
-            webp: string;
-        };
-        username: string;
-    };
-    replies?: Comment[];
-};
 
-type CurrentUser = {
-    image: {
-        png: string;
-        webp: string;
-    };
-    username: string;
-};
+export const CommentSection = () => {
 
-type CommentSectionProps = {
-    currentUser: CurrentUser;
-    comments: Comment[];
-};
+    const { comments } = useCommentsData();
 
-export const CommentSection = ({ currentUser, comments }: CommentSectionProps) => {
-
+    console.log( comments )
     return (
         <>
-            {JSON.stringify(currentUser)}
-            {JSON.stringify(comments)}
-            <CommentThread />
+            {
+                comments &&
+                comments.map(comment => <CommentThread key={comment.id} comment={comment} />)
+            }
         </>
     )
 }
