@@ -1,4 +1,3 @@
-import React from 'react'
 import avatar from '../../assets/avatars/image-amyrobson.png'
 
 export const CommentAuthor = () => {
